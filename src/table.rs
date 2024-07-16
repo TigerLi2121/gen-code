@@ -49,7 +49,7 @@ pub async fn table_infos() -> Result<Vec<TableInfo>, Error> {
         .build_query_as()
         .fetch_all(db::get_pool().unwrap())
         .await?;
-    println!("tis: {:?}", tis);
+    // println!("tis: {:?}", tis);
 
     // 查询列信息
     for ti in tis.iter_mut() {
@@ -63,7 +63,7 @@ pub async fn table_infos() -> Result<Vec<TableInfo>, Error> {
             .build_query_as()
             .fetch_all(db::get_pool().unwrap())
             .await?;
-        println!("cis: {:?}", cis);
+        // println!("cis: {:?}", cis);
         ti.table_columns = cis;
     }
     Ok(tis)

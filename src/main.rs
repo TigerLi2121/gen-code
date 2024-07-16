@@ -14,8 +14,8 @@ async fn main() {
     dotenv::dotenv().ok();
     db::init_db_pool().await.expect("数据库连接失败");
 
-    let tables = table::table_infos().await.unwrap();
-    println!("全部表：{:?}", tables);
+    let table_infos = table::table_infos().await.unwrap();
+    println!("table_infos: {:?}", table_infos);
 
     let reg = Handlebars::new();
     let tpl = fs::read_to_string("./templates/Controller.java").expect("获取文件模板文件内容失败");
