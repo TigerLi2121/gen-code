@@ -7,11 +7,15 @@ use std::{
 };
 
 use gen_code::db;
+use gen_code::table;
 
 #[tokio::main]
 async fn main() {
     dotenv::dotenv().ok();
-    db::init_db_pool().await.unwrap();
+    db::init_db_pool().await.expect("数据库连接失败");
+
+    let tables = table::table_infos().await.unwrap();
+    println!("全部表：{:?}", tables);
 
     let reg = Handlebars::new();
     let tpl = fs::read_to_string("./templates/Controller.java").expect("获取文件模板文件内容失败");

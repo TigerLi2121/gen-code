@@ -1,4 +1,5 @@
 pub mod db;
+pub mod table;
 
 #[cfg(test)]
 mod tests {
