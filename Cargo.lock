@@ -427,6 +427,7 @@ dependencies = [
  "dotenv",
  "handlebars",
  "once_cell",
+ "serde",
  "serde_json",
  "sqlx",
  "tokio",
