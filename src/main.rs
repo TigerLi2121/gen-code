@@ -4,7 +4,6 @@ use serde_json::json;
 use std::{
     env,
     fs::{self, File},
-    path::Path,
     path::PathBuf,
 };
 
