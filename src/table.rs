@@ -5,9 +5,9 @@ use sqlx::{Error, FromRow, MySql, QueryBuilder};
 
 #[derive(Debug, FromRow, Serialize)]
 pub struct TableInfo {
-    #[sqlx(rename = "TABLE_NAME")]
+    // #[sqlx(rename = "TABLE_NAME")]   // mysql8
     pub table_name: String,
-    #[sqlx(rename = "TABLE_COMMENT")]
+    // #[sqlx(rename = "TABLE_COMMENT")]   // mysql8
     pub table_comment: String,
 
     #[sqlx(skip)]
@@ -16,13 +16,13 @@ pub struct TableInfo {
 
 #[derive(Debug, FromRow, Serialize)]
 pub struct ColumnInfo {
-    #[sqlx(rename = "COLUMN_NAME")]
+    // #[sqlx(rename = "COLUMN_NAME")] // mysql8
     pub column_name: String,
-    #[sqlx(rename = "DATA_TYPE")]
+    // #[sqlx(rename = "DATA_TYPE")]   // mysql8
     pub data_type: String,
-    #[sqlx(rename = "COLUMN_COMMENT")]
+    // #[sqlx(rename = "COLUMN_COMMENT")]  // mysql8
     pub column_comment: String,
-    #[sqlx(rename = "COLUMN_KEY")]
+    // #[sqlx(rename = "COLUMN_KEY")]  // mysql8
     pub column_key: String,
 }
 

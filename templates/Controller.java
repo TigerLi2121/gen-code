@@ -6,6 +6,7 @@ import com.ximalaya.eros.web.anno.RestPathController;
 import {{ pkg_name }}.{{ module_name }}.entity.{{ class_name }}Entity;
 import {{ pkg_name }}.{{ module_name }}.service.{{ class_name }}Service;
 import com.ximalayaos.common.util.R;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
@@ -23,6 +24,7 @@ import java.util.List;
  */
 @Slf4j
 @Validated
+@RequiredArgsConstructor
 @RestPathController("/api/{{ table_name }}")
 public class {{ class_name }}Controller {
 
