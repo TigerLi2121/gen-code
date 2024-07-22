@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
  * @author {{ author }}
  * @date {{ date_time }}
  */
-@Service("{{ class_name }}Service")
+@Service
 public class {{ class_name }}ServiceImpl extends ServiceImpl<{{ class_name }}Dao, {{ class_name }}Entity> implements {{ class_name }}Service {
 
 }

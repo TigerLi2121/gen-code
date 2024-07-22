@@ -1,8 +1,6 @@
 package {{ pkg_name }}.{{ module_name}}.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -22,9 +20,19 @@ public class {{ class_name }}Entity implements Serializable {
     {{#each attributes}}
     /**
      * {{ comment }}
-     */{{#if pk}}
-    @TableId(type = IdType.AUTO){{/if}}
+     */
+    {{#if pk}}
+    @TableId(type = IdType.AUTO)
     private {{ attribute_type }} {{ attribute_name_fl }};
+    {{else if (eq column_name "created_at")}}
+    @TableField(fill = FieldFill.INSERT)
+    private {{ attribute_type }} {{ attribute_name_fl }};
+    {{else if (eq column_name "updated_at")}}
+    @TableField(fill = FieldFill.INSERT_UPDATE)
+    private {{ attribute_type }} {{ attribute_name_fl }};
+    {{else}}
+    private {{ attribute_type }} {{ attribute_name_fl }};
+    {{/if}}
 
     {{/each}}
 }

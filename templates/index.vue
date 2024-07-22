@@ -37,7 +37,7 @@
   
         <t-dialog v-model:visible="dialogVisible" attach="body" :header="d.id ? '修改' : '新增'" :footer="null">
           <template #body>
-            <t-form ref="form" :data="d" reset-type="initial" @submit="onSubmit">{{#each attributes}}{{#unless pk}}
+            <t-form ref="form" :data="d" reset-type="initial" @submit="onSubmit">{{#each attributes}}{{#unless (or (or pk (eq column_name "created_at")) (eq column_name "updated_at"))}}
               <t-form-item label="{{ comment }}" name="{{ column_name }}">
                 <t-input v-model="d.{{ column_name }}" placeholder="请输入{{ comment }}"></t-input>
               </t-form-item>{{/unless}}{{/each}}

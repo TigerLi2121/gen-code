@@ -36,6 +36,20 @@ mod tests {
         files
     }
 
+    fn file_extension(filename: &str) -> Option<&str> {
+        // 找到文件名中最后一个'.'的位置
+        filename.rfind('.')
+            // 检查'.'是否是文件名的一部分，而不是目录的一部分
+            .filter(|&pos| pos != filename.len() - 1)
+            .and_then(|pos| filename.get(pos + 1..).map(str::trim))
+    }
+
+    #[test]
+    fn get_file_extension() {
+        let fe = file_extension("index.vue").expect("获取扩展名失败");
+        println!("文件扩展名：{}", fe)
+    }
+
     #[test]
     fn get_all_file_paths() {
         let files = all_file_paths();
