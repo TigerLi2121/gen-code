@@ -9,7 +9,7 @@
               </span>
               <div v-has="'{{ module_name }}:{{ table_name }}:delete'" class="delete-btn">
                 <t-button variant="base" theme="danger" :disabled="!selectedRowKeys.length" @click="delBatch">删除</t-button>
-                <p v-if="!!selectedRowKeys.length" class="selected-count">已选{{ selectedRowKeys.length }}项</p>
+                <p v-if="!!selectedRowKeys.length" class="selected-count">已选\{{ selectedRowKeys.length }}项</p>
               </div>
             </div>
           </t-col>
@@ -96,6 +96,7 @@
     dialogVisible.value = true
     form.value.reset()
     form.value.clearValidate()
+    d.value = {};
   }
   // 修改
   const update = (row) => {
