@@ -19,7 +19,7 @@ public class {{ class_name }}Entity implements Serializable {
     
     {{#each attributes}}
     /**
-     * {{ comment }}
+     * {{{ comment }}}
      */
     {{#if pk}}
     @TableId(type = IdType.AUTO)
